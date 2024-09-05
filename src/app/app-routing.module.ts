@@ -1,23 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { LoginComponent } from './components/login/login.component';
-import { TokenComponent } from './components/token/token.component';
-import { InicioComponent } from './components/inicio/inicio.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
-
-  { path: 'acceso-denegado', component: NotfoundComponent },
-
-  { path: 'login', component: LoginComponent },
-  { path: 'token', component: TokenComponent },
-
-  { path: 'inicio', component: InicioComponent, canActivate: [AuthGuard] },
-
-  { path: '**', redirectTo: 'acceso-denegado' },
+  { path: '', pathMatch: 'full', redirectTo: 'running' },
+  { path: 'running', component: NotfoundComponent },
+  { path: '**', redirectTo: 'running' },
 ];
 
 @NgModule({
